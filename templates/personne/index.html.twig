@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block title %}Groupe{% endblock %}
+
+{% block body %}
+  
+
+ 
+
+
+
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <a href='{{ path('personne_add') }}'>
+                        <button class="btn btn-primary">Nouveau</button>
+                    </a>
+                    <a href='{{ path('personne_ajaxAction') }}'>
+                        <button class="btn btn-primary">Information</button>
+                    </a>
+                    <table id="example1" class="table table-bordered table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Fichier</th>
+                                <th>Detail</th>
+                                <th>Modifier</th>
+                                <th>Supprimer</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for personne in personne %}
+                                <tr>
+                                    <td>{{ personne.nom}}</td>
+                                    <td>{{ personne.prenom}}</td>
+                                    <td>{{ personne.fichier}}</td>
+
+
+                                    <td>
+                                        <a href="{{ path('personne_update', {'id': personne.id}) }}">
+                                            <span style="font-size: 1em; color: Dodgerblue;">
+                                                Modifier
+                                                <i class="fas fa-edit"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">aucune donnee trouve</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+{{ render_chart(chart) }}
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}
+
+

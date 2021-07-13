@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modification {% endblock %}
+
+{% block body %}
+
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Modification de personne</h3>
+        </div>
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div class="row mb-4">
+                <div class="col-3">
+                    <div class="form-group">
+                        {{ form_label(form.nom, "Nom") }}
+                        {{ form_errors(form.nom) }}
+                        <div>
+                            {{ form_widget(form.nom)  }}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-3">
+                    <div class="form-group">
+
+                        {{ form_label(form.prenom, "Prénoms")}}
+                        {{ form_errors(form.prenom)  }}
+                        <div>
+                            {{ form_widget(form.prenom) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+
+                        {{ form_label(form.fichier, "Fichier") }}
+                        {{ form_errors(form.fichier)  }}
+                        <div>
+                            {{ form_widget(form.fichier) }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+      
+            <div>
+                {{ form_rest(form) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div></div></div>
+
+
+
+
+{% endblock %}

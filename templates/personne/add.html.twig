@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Formation {% endblock %}
+
+{% block body %}
+
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Enregistrrement de personne</h3>
+        </div>
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div class="row mb-4">
+                <div class="col-3">
+                    <div class="form-group">
+                        {{ form_label(form.nom, "Nom") }}
+                        {{ form_errors(form.nom) }}
+                        <div>
+                            {{ form_widget(form.nom)  }}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-3">
+                    <div class="form-group">
+
+                        {{ form_label(form.prenom, "Prénoms")}}
+                        {{ form_errors(form.prenom)  }}
+                        <div>
+                            {{ form_widget(form.prenom) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    {{ form_label(form.fichier, "Fichier", {'label_attr': {'class': 'col-md-2'}})  }}
+                    <div class="form_errors col-md-12">
+
+                        {{ form_errors(form.fichier)  }}
+                    </div>
+                    <div class="col col-md-10">
+                        {{ form_widget(form.fichier)  }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" id="personne_exists_error" style="display: none;">
+            <div class="col col-xs-12">
+                <div class="form_errors col-lg-12">
+                    <span class="help-block">
+                        <ul class="list-unstyled">
+                            <li><span class="glyphicon glyphicon-exclamation-sign"></span> {{ 'personne_exists' | trans }}</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            {{ form_rest(form) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+
+
+{% endblock %}
